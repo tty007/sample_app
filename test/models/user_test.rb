@@ -43,7 +43,7 @@ class UserTest < ActiveSupport::TestCase
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
-    @user.save
+    @user.save #実際に元のデータをDBに登録して比較する
     assert_not duplicate_user.valid?
   end
 
